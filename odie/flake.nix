@@ -12,7 +12,7 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
-    # mkShellNoCC not applicable as pip packages require C compiling
+    # mkShellNoCC not applicable as psycopg requires C compiling
     devShells.${system}.default = pkgs.mkShell {
       venvDir = ".venv";
       packages = with pkgs.python313Packages; [
