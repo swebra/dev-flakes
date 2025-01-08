@@ -3,12 +3,18 @@ A personal collection of Nix flakes defining development environments for non-ni
 
 ## Usage
 In a sub-shell:
-```nix
+```shell
+# Without cloning
+nix develop github:swebra/dev-flakes/?dir=<project>
+# With local clone
 nix develop /path/to/dev-flakes/<project>
 ```
 
 In `.envrc` for use with [direnv](https://github.com/direnv/direnv) (and likely [nix-direnv](https://github.com/nix-community/nix-direnv)):
-```
+```shell
+# Without cloning
+use flake github:swebra/dev-flakes/?dir=<project>
+# With local clone
 use flake /path/to/dev-flakes/<project>
 ```
 
