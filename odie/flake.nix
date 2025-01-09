@@ -14,12 +14,14 @@
   in {
     # mkShellNoCC not applicable as psycopg requires C compiling
     devShells.${system}.default = pkgs.mkShell {
-      venvDir = ".venv";
       packages = with pkgs.python313Packages; [
         python
         pip
         venvShellHook
       ];
+
+      venvDir = ".venv";
+      postVenvCreation = "pip install -r requirements.txt";
 
       # Below all provides build and runtime dependencies for pip-installed packages
 

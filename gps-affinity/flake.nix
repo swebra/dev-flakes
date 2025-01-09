@@ -13,12 +13,14 @@
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     devShells.${system}.default = pkgs.mkShellNoCC {
-      venvDir = ".venv";
       packages = with pkgs.python312Packages; [
         python
         pip
         venvShellHook
       ];
+
+      venvDir = ".venv";
+      postVenvCreation = "pip install -r requirements.txt";
 
       # Below all provides build and runtime dependencies for pip-installed packages
 
