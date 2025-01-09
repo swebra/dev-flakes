@@ -32,3 +32,7 @@ use flake /path/to/dev-flakes/<project>
 - Define anything too user-specific
     - Editors, environment variables, etc. should be managed elsewhere through home-manager, direnv, nix overlays, etc.
 - Define environments for [untested architectures](https://discourse.nixos.org/t/what-are-reasons-to-not-use-flake-utils/21140/2)
+
+## Other projects for reference
+- [the-nix-way/dev-templates](https://github.com/the-nix-way/dev-templates)
+- [MordragT/nix-templates](https://github.com/MordragT/nix-templates)
