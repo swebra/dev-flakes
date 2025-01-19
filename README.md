@@ -1,5 +1,7 @@
 # Dev Flakes ❄️
-A personal collection of Nix flakes defining development environments for non-nix projects, typically at work.
+A personal collection of nix flakes defining development environments for non-nix projects, typically at work.
+
+If you're new to nix, note that a project which fully adopts it would likely do things differently than what is shown here; In a nix-first project, you might also manage sub-dependencies (e.g. Python libraries) with nix for better reproducibility, or build your Docker container with the same nix configuration for environment consistency between dev and prod. The flakes provided here are comparatively shallow as they are intended to be non-intrusive and with minimal maintenance when working with other non-nix-using developers.
 
 ## Usage
 In a sub-shell:
