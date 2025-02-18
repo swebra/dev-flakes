@@ -1,6 +1,6 @@
 {
   description = ''
-    A development flake for gps-affinity where Python packages can be installed through pip from a
+    A development flake for glam where Python packages can be installed through pip from a
     traditional requirements.txt rather than being managed through nix.
   '';
 
@@ -12,8 +12,9 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
-    devShells.${system}.default = pkgs.mkShellNoCC {
-      packages = with pkgs.python312Packages; [
+    # mkShellNoCC not applicable as h3 requires C compiling
+    devShells.${system}.default = pkgs.mkShell {
+      packages = with pkgs.python313Packages; [
         python
         pip
         venvShellHook
