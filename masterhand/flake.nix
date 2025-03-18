@@ -29,7 +29,7 @@
         postgresql_15 # Provides libpg for building psycopg
       ];
 
-      LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [pkgs.stdenv.cc.cc];
+      env.LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [pkgs.stdenv.cc.cc.lib];
     };
   };
 }
