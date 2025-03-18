@@ -25,7 +25,7 @@
 
       # Below all provides build and runtime dependencies for pip-installed packages
 
-      LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [pkgs.stdenv.cc.cc];
+      env.LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [pkgs.stdenv.cc.cc.lib];
     };
   };
 }
