@@ -26,7 +26,8 @@
       # Below all provides build and runtime dependencies for pip-installed packages
 
       buildInputs = with pkgs; [
-        postgresql_15 # Provides libpg for building psycopg
+        postgresql_17 # Provides libpg for building psycopg
+        postgresql_17.pg_config
       ];
 
       env.LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [pkgs.stdenv.cc.cc.lib];
