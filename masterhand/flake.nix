@@ -5,7 +5,7 @@
   '';
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
   };
 
   outputs = {nixpkgs, ...}: let
@@ -26,8 +26,7 @@
       # Below all provides build and runtime dependencies for pip-installed packages
 
       buildInputs = with pkgs; [
-        postgresql_17 # Provides libpg for building psycopg
-        postgresql_17.pg_config
+        postgresql_17.pg_config # Required for building psycopg
       ];
 
       env.LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [pkgs.stdenv.cc.cc.lib];
