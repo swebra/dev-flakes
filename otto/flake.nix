@@ -2,7 +2,7 @@
   description = "A development flake for otto";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
   };
 
   outputs = {nixpkgs, ...}: let
@@ -10,7 +10,6 @@
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     devShells.${system}.default = pkgs.mkShellNoCC {
-      venvDir = ".venv";
       packages = with pkgs; [
         nodejs
         corepack
