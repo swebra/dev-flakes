@@ -13,11 +13,13 @@
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     devShells.${system}.default = pkgs.mkShellNoCC {
-      packages = with pkgs.python311Packages; [
-        python
-        pip
-        venvShellHook
-      ];
+      packages = with pkgs.python311Packages;
+        [
+          python
+          pip
+          venvShellHook
+        ]
+        ++ [pkgs.nodejs_20];
 
       venvDir = ".venv";
       postVenvCreation = "pip install -r requirements.txt";
