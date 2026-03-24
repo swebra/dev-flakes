@@ -19,7 +19,13 @@
           pip
           venvShellHook
         ]
-        ++ [pkgs.nodejs_20];
+        ++ (with pkgs; [
+          nodejs_20
+
+          # Websocket test clients
+          websocat # remember -E!
+          claws
+        ]);
 
       venvDir = ".venv";
       postVenvCreation = "pip install -r requirements.txt";
