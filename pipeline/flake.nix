@@ -33,6 +33,7 @@
         pkgs.stdenv.cc.cc.lib
         pkgs.glib # For cv2
         pkgs.libGL # For cv2
+        pkgs.libz # For numpy
       ];
     };
   };
