@@ -4,7 +4,7 @@
   '';
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
   };
 
   outputs = {nixpkgs, ...}: let
@@ -13,7 +13,7 @@
   in {
     devShells.${system}.default = pkgs.mkShellNoCC {
       packages = with pkgs; [
-        nodejs_20 # TODO: Match docker version
+        nodejs_22
         pre-commit
       ];
     };
