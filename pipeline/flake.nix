@@ -23,7 +23,7 @@
 
       shellHook = ''
         unset PYTHONPATH
-        uv sync
+        uv sync --extra test
         source .venv/bin/activate
       '';
 
@@ -33,6 +33,7 @@
         pkgs.stdenv.cc.cc.lib
         pkgs.glib # For cv2
         pkgs.libGL # For cv2
+        pkgs.libxcb # For cv2
         pkgs.libz # For numpy
       ];
     };
