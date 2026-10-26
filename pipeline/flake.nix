@@ -5,21 +5,31 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
-  outputs = {nixpkgs, ...}: let
+  outputs = {
+    nixpkgs,
+    nixpkgs-unstable,
+    ...
+  }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    pkgsUnstable = nixpkgs-unstable.legacyPackages.${system};
   in {
     devShells.${system}.default = pkgs.mkShellNoCC {
-      packages = with pkgs; [
-        uv # letting uv handle python/pip
-        pre-commit
-        gnumake
-        just
-        yq
-        jq
-      ];
+      packages =
+        [
+          # TODO: 26.11: consider going back to stable uv
+          pkgsUnstable.uv # letting uv handle python/pip
+        ]
+        ++ (with pkgs; [
+          pre-commit
+          gnumake
+          just
+          yq
+          jq
+        ]);
 
       shellHook = ''
         unset PYTHONPATH
