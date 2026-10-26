@@ -14,9 +14,9 @@
     devShells.${system}.default = pkgs.mkShellNoCC {
       packages = with pkgs; [
         just
+        python311 # Needed to run unoconv/unoconverter
         pre-commit
 
-        python311 # Needed to run unoconv/unoconverter
         unoconv # Include original unoconv for reference
       ];
 
